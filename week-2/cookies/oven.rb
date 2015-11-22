@@ -12,15 +12,7 @@ class Oven
 
   def get_cookie_type
     View.display_cookie_list
-    case gets.chomp.to_i
-      when 1
-        @batch = FortuneCookie.new
-      when 2
-        @batch = OatmealCookie.new
-    end
-  end
-
-  def add_cookies(type)
+    @batch = View.get_batch_type
   end
 
   def start_cooking

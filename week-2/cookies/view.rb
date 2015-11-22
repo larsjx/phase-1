@@ -1,10 +1,20 @@
 require_relative 'reset_screen'
 
 class View
+  attr_reader :batch
 
   def View.display_cookie_list
     reset_screen
     puts Cookies.list
+  end
+
+  def View.get_batch_type
+     case gets.chomp.to_i
+      when 1
+        @batch = FortuneCookie.new
+      when 2
+        @batch = OatmealCookie.new
+    end
   end
 
   def View.get_timer
