@@ -6,8 +6,12 @@ class Oven
 
   def initialize
     get_cookie_type
-    @timer = View.get_timer
+    get_timer
     @time_in_oven = 0
+  end
+
+  def get_timer
+    @timer = View.get_timer
   end
 
   def get_cookie_type

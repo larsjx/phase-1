@@ -6,7 +6,7 @@ class Cookies
     @optimal_time = time
   end
 
-  def Cookies.list
+  def self.list
     ["1. Fortune", "2. Oatmeal"]
   end
 
