@@ -3,6 +3,7 @@ require_relative 'reset_screen'
 class View
 
   def View.display_cookie_list
+    reset_screen
     puts Cookies.list
   end
 
