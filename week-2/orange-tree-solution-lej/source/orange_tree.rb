@@ -12,18 +12,19 @@ class OrangeTree
 
   def age!
     exit! if dead?
-    @oranges = []
     @age += 1
     grow_taller!
-    grow_oranges if has_oranges?
+    grow_oranges if @age > 5
   end
 
   def grow_taller!
     @height += rand(18)+6
+    @oranges = []
   end
 
   def has_oranges?
-    @age > 5
+    # age > 5
+    @oranges.length > 0
   end
 
   def grow_oranges
@@ -42,19 +43,16 @@ class OrangeTree
     @oranges.each do |orange|
       total += orange.diameter
     end
-    return sprintf("%0.2f", (total / @oranges.length) * 0.039)
+    return sprintf("%0.2f", (total / @oranges.length) * 0.039) if @oranges.length > 0
   end
 
   def dead?
-    rand(1000)<10
+    @age > 30 || rand(1000) < 10
   end
 
-  # Returns an Orange if there are any
-  # Raises a NoOrangesError otherwise
   def pick_an_orange!
     raise NoOrangesError, "This tree has no oranges" unless self.has_oranges?
-    puts @oranges.length
-    @oranges.pop
+    oranges.pop
   end
 end
 
