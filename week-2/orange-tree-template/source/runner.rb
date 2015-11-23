@@ -6,12 +6,14 @@ tree = OrangeTree.new
 
 tree.age! until tree.has_oranges?
 
-puts "Tree is #{tree.age} years old and #{tree.height} feet tall"
+puts "Tree is #{tree.age} years old and #{sprintf("%0.2f", tree.height/12)} feet tall"
 
 until tree.dead?
   basket = []
 
   while tree.has_oranges?
+    puts "TREE YES"
+    puts tree.oranges.length
     basket << tree.pick_an_orange!
   end
 
